@@ -1,1 +1,1 @@
-
+## my basic sway config
