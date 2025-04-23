@@ -1,0 +1,138 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 30,
+  "margin": "0 0 0 0",
+  //"width": 1350, // Waybar width
+  // Choose the order of the modules idle_inhibitor
+  "modules-left": [
+    //"custom/appmenu",
+    "sway/workspaces",
+    //"wlr/taskbar",
+    "custom/swap",
+    "tray",
+    "sway/window",
+    "sway/mode",
+    "mpd"
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "custom/power",
+    "pulseaudio",
+    //"custom/keyboard-layout",
+    //"temperature",
+    "cpu",
+    "memory",
+    "disk",
+    //"group/hardware",
+    //"battery",
+    "network"
+    //"idle_inhibitor",
+    //"custom/power"
+    //"clock"
+  ],
+  "custom/appmenu": {
+        	"format": "{icon}",
+        	"format-icon": [""],
+        	"rotate": 0,
+        	"on-click": "/home/ushio_noa/Documents/WarThunder/launcher"
+  },
+
+  "sway/workspaces": {
+    "all-outputs": true,
+    "disable-scroll": true,
+    "format": "{icon}",
+    "format-icons": {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "urgent": "",
+    "focused": "",
+    "default": ""
+    },
+
+    "persistent_workspaces": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": []
+    }
+  },
+
+  "wlr/taskbar": {
+        	"format": "{icon}",
+        	"tooltip": true,
+        	"tooltip-format": "{title}",
+        	"on-click": "activate",
+        	"on-click-middle": "close",
+        	"active-first": true
+   	 },
+
+  "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+  "cpu":{
+	  "format": "{usage}% ",
+	  "tooltip": "false"
+  },
+  "memory":{
+	  "format": "{}% "
+  },
+
+  "disk":{
+	  "format": "{}% "
+  },
+
+  
+    	"network": {
+        	"tooltip": true,
+        	"rotate": 0,
+        	"format-ethernet": " ",
+        	"tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>",
+        	"format-linked": " {ifname} (No IP)",
+        	"format-disconnected": "󰖪 ",
+        	"tooltip-format-disconnected": "Disconnected",
+        	"format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+        	"interval": 2
+    	},
+
+       "clock": {
+        	"format": "{:%I:%M %p}",
+        	"rotate": 0,
+        	"format-alt": "{  %d·%m·%y}",
+        	"tooltip-format": "<span>{calendar}</span>",
+        	"calendar": {
+            		"mode": "month",
+            		"format": {
+                	    "months": "<span color='#ff6699'><b>{}</b></span>",
+                        "days": "<span color='#cdd6f4'><b>{}</b></span>",
+			"weekdays": "<span color='#7CD37C'><b>{}</b></span>",
+                	    "today": "<span color='#ffcc66'><b>{}</b></span>"
+            	}
+            }
+    },
+
+    "custom/power": {
+	    "format": "",
+	    "on-click": "wlogout"
+    }
+
+}
